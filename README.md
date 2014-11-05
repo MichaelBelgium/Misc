@@ -13,8 +13,8 @@ public OnPlayerVehicleHealthChange(playerid, vehicleid, Float:newhealth, Float:o
 ```PAWN
 public OnPlayerVehicleHealthChange(playerid, vehicleid, Float:newhealth, Float:oldhealth)
 {
-  if(oldhealth > newhealth) BanEx(playerid,"Healthhack");
-  return 1;
+    if(oldhealth > newhealth) BanEx(playerid,"Healthhack");
+    return 1;
 }
 ```
 
