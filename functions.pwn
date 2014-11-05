@@ -8,10 +8,12 @@ stock IsVehicleUpsideDown(vehicleid)
 
 stock GetPlayerID(name[])
 {
+	new pName[MAX_PLAYER_NAME];
 	for(new i = 0, j = GetMaxPlayers(); i < j; i++)
 	{
 		if(!IsPlayerConnected(i)) continue;
-		if(!strcmp(PlayerName(i),name)) return i;
+		GetPlayerName(i,pName,sizeof(pName));
+		if(!strcmp(pName,name)) return i;
 	}
 	return INVALID_PLAYER_ID;
 }
