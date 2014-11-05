@@ -24,3 +24,34 @@ Or not useful ?
 native GetPlayerID(name[])
 native stock IsVehicleUpsideDown(vehicleid)
 ```
+
+<h1>Anti-Pausing, Anti-Tab, Anti-esc, ... (anti_pause.inc)</h1>
+
+```PAWN
+public OnPlayerPause(playerid)
+public OnPlayerUnPause(playerid)
+```
+
+<h2>Example</h2>
+
+```PAWN
+#include <Anti_Pause>
+ 
+public OnPlayerPause(playerid)
+{
+    new name[MAX_PLAYER_NAME], string[64];
+    GetPlayerName(playerid, name, sizeof(name));
+    format(string, sizeof(string), "%s pressed esc.",name);
+    SendClientMessageToAll(COLOR_RED, string);
+    return 1;
+}
+ 
+public OnPlayerUnPause(playerid)
+{
+    new name[MAX_PLAYER_NAME], string[64];
+    GetPlayerName(playerid, name, sizeof(name));
+    format(string, sizeof(string), "%s unpaused.",name);
+    SendClientMessageToAll(COLOR_RED, string);
+    return 1;
+}
+```
