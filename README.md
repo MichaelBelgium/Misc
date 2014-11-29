@@ -28,8 +28,10 @@ native stock IsVehicleUpsideDown(vehicleid)
 <h1>Anti-Pausing, Anti-Tab, Anti-esc, ... (anti_pause.inc)</h1>
 
 ```PAWN
-public OnPlayerPause(playerid)
-public OnPlayerUnPause(playerid)
+public OnPlayerPause(playerid);
+public OnPlayerUnPause(playerid);
+
+native IsPlayerPaused(playerid);
 ```
 
 <h2>Example</h2>
@@ -54,4 +56,16 @@ public OnPlayerUnPause(playerid)
     SendClientMessageToAll(COLOR_RED, string);
     return 1;
 }
+```
+
+<h2>Anti_Pause2.inc</h2>
+
+If you have issues with errors or you just don't wanna use y_hooks for anti_pause.inc then use <b>anti_pause2.inc</b>
+Do note you have to add these functions to the right callbacks:
+```PAWN
+native P_OnPlayerConnect(playerid);
+native P_OnPlayerUpdate(playerid);
+native P_OnPlayerRequestClass(playerid);
+native P_OnPlayerDisconnect(playerid);
+native P_OnPlayerSpawn(playerid);
 ```
