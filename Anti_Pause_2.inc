@@ -1,0 +1,72 @@
+#define TIME_PAUSED 2500 //if he esced for 1 second...
+
+forward C_Paused(playerid);
+forward OnPlayerPause(playerid);
+forward OnPlayerUnPause(playerid);
+
+new g_Paused[MAX_PLAYERS];
+new g_Timer[MAX_PLAYERS];
+new bool:g_Requesting[MAX_PLAYERS];
+new bool:g_IsPaused[MAX_PLAYERS];
+
+stock P_OnPlayerConnect(playerid)
+{
+    g_IsPaused[playerid] = false;
+    g_Requesting[playerid] = false;
+    g_Timer[playerid] = SetTimerEx("C_Paused", 754, true, "i", playerid);
+    return 1;
+}
+
+stock P_OnPlayerUpdate(playerid)
+{
+    g_Paused[playerid] = GetTickCount();
+    return 1;
+}
+
+stock P_OnPlayerRequestClass(playerid)
+{
+    g_Requesting[playerid] = true;
+    g_IsPaused[playerid] = false;
+    return 1;
+}
+
+stock P_OnPlayerDisconnect(playerid)
+{
+	KillTimer(g_Timer[playerid]);
+	g_Requesting[playerid] = false;
+	g_IsPaused[playerid] = false;
+    return 1;
+}
+
+stock P_OnPlayerSpawn(playerid)
+{
+    g_Requesting[playerid] = false;
+    g_IsPaused[playerid] = false;
+    return 1;
+}
+
+public C_Paused(playerid)
+{
+    if(GetTickCount()-g_Paused[playerid] > TIME_PAUSED && g_Requesting[playerid] != true && g_IsPaused[playerid] != true && InvalidStates(playerid) != 1)
+    {
+        CallLocalFunction("OnPlayerPause","i",playerid);
+        g_IsPaused[playerid] = true;
+    }
+    else if(GetTickCount()-g_Paused[playerid] < TIME_PAUSED && g_Requesting[playerid] != true && g_IsPaused[playerid] != false && InvalidStates(playerid) != 1)
+    {
+        CallLocalFunction("OnPlayerUnPause","i",playerid);
+        g_IsPaused[playerid] = false;
+    }
+    return 1;
+}
+
+stock IsPlayerPaused(playerid)
+{
+	return g_IsPaused[playerid];
+}
+
+stock InvalidStates(playerid)
+{
+	new pState = GetPlayerState(playerid);
+    return (pState == 0 || pState == 7);
+}
