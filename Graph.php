@@ -2,8 +2,8 @@
 	include "SACNRMonitor.php"; // http://monitor.sacnr.com/api/php/SACNRMonitor.php
 	
 	$serverid = 1638985; // SACNR Server ID | http://monitor.sacnr.com/server-<here is an id>.html
-	$hours = 24; // how much past hours should the graph show the playerbase. Max value = 44 !
-	$using_table = true; //Display a detailed table under it ? true or false
+	$hours = 44; // how much past hours should the graph show the playerbase. Max value = 44 !
+	$using_table = false; //Display a detailed table under it ? true or false
 
 
 	$monitor = new SACNRMonitor;
