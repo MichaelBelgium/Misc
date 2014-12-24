@@ -17,8 +17,7 @@
 
 	$json_query = json_encode($query);
     $json_info = json_encode($info);
-
-
+    
 	if($hours > 44 || $hours < 1) die("Invalid value: $hours");
 ?>
 
