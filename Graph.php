@@ -36,7 +36,7 @@
 			var data = new google.visualization.DataTable();
             data.addColumn('string', 'Date');
             data.addColumn('number', 'Playercount');
-
+            
 			var datavalues = <? echo $json_query ?>;
 			var date = [];
 			for (i = datavalues.length-(<? echo $hours ?>* 4), j = datavalues.length; i < j; i++)
