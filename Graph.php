@@ -3,7 +3,6 @@
      * Fixed the using_table part
      * Added another table using more server info from SACNR monitor
      * */
-
 	include "ucp/includes/SACNRMonitor.php";
 	
 	$serverid = 1638985; // SACNR Server ID | http://monitor.sacnr.com/server-<here is an id>.html
@@ -17,7 +16,8 @@
 
 	$json_query = json_encode($query);
     $json_info = json_encode($info);
-    
+
+
 	if($hours > 44 || $hours < 1) die("Invalid value: $hours");
 ?>
 
