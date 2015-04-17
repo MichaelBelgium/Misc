@@ -72,8 +72,11 @@ native P_OnPlayerSpawn(playerid);
 
 <h1>Playerbase graph (Graph.php)</h1>
 
-Using API of SACNR monitor. <a href="http://monitor.sacnr.com/api/php/SACNRMonitor.php">Download required file</a>
-You can use it everywhere, the file i have is on one page. A big graph with a(n optional) big table.
+Using API of SACNR monitor. You can use it everywhere, the file i have is on one page. A big graph with a(n optional) big table.
+
+Required files:
+* <a href="http://monitor.sacnr.com/api/php/SACNRMonitor.php">SACNRMonitor.php</a>
+* <a href="http://github.com/aterrien/jQuery-Knob/blob/master/dist/jquery.knob.min.js">Knob js library</a>
 
 Settings:
 ```PHP
