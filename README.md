@@ -75,10 +75,12 @@ native P_OnPlayerSpawn(playerid);
 Using API of SACNR monitor. <a href="http://monitor.sacnr.com/api/php/SACNRMonitor.php">Download required file</a>
 You can use it everywhere, the file i have is on one page. A big graph with a(n optional) big table.
 
-<a href="http://pat.exp-gaming.net/test.php">Here an example</a><br>
 Settings:
 ```PHP
 $serverid = 1638985; 
 $hours = 24; 
-$using_table = true;
+$using_table = (isset($_GET["table"]) && $_GET["table"] == "false") ? false : true; //keep it or edit it
 ```
+
+<a href="http://pat.exp-gaming.net/graph.php?table=false">Here an example with the knob</a><br>
+<a href="http://pat.exp-gaming.net/graph.php">Here an example with the table (default)</a>
