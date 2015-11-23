@@ -70,20 +70,4 @@ native P_OnPlayerDisconnect(playerid);
 native P_OnPlayerSpawn(playerid);
 ```
 
-<h1>Playerbase graph (Graph.php)</h1>
 
-Using API of SACNR monitor. You can use it everywhere, the file i have is on one page. A big graph with a(n optional) big table.
-
-Required files:
-* <a href="http://monitor.sacnr.com/api/php/SACNRMonitor.php">SACNRMonitor.php</a>
-* <a href="http://github.com/aterrien/jQuery-Knob/blob/master/dist/jquery.knob.min.js">Knob js library</a>
-
-Settings:
-```PHP
-$serverid = 1638985; 
-$hours = 24; 
-$using_table = (isset($_GET["table"]) && $_GET["table"] == "false") ? false : true; //keep it or edit it
-```
-
-<a href="http://pat.exp-gaming.net/graph.php?table=false">Here an example with the knob</a><br>
-<a href="http://pat.exp-gaming.net/graph.php">Here an example with the table (default)</a>
