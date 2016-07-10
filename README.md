@@ -70,4 +70,8 @@ native P_OnPlayerDisconnect(playerid);
 native P_OnPlayerSpawn(playerid);
 ```
 
+<h1>mta_mapmover.php</h1>
 
+This is a webpage where u can mass move a mta map. Select a .map file, fill in the offsets and it will change all the positions from the original map to +offset. Afterwards you get the converted .map file back as download.
+
+Demo: <a href="http://ucp.lm-dm.net/mapmover.php">Here</a>
